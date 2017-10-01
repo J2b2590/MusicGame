@@ -1,0 +1,46 @@
+.container{
+	 border: 3px solid #73AD21;
+	margin-top: 10%
+}
+
+.row{
+	border: 3px solid #73AD21
+}
+
+
+.col-sm-8{
+	height: 550px;
+	border: 3px solid #73AD21
+}
+
+
+.col-sm{
+	border: 3px solid red;
+}
+
+button{
+	
+	width: 97%
+	/*height: 100%;*/
+}
+
+/*interval{
+	padding: 4%;
+}*/
+
+.Octave{
+	height: 100%;
+}
+
+.again{
+	height: 100%
+
+}
+
+.next{
+	height: 100%
+}
+
+.start{
+	height: 100%
+}
