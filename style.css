@@ -1,16 +1,19 @@
 .container{
 	 border: 3px solid #73AD21;
-	margin-top: 10%
+	margin-top: 10%;
 }
 
 .row{
-	border: 3px solid #73AD21
+	border: 3px solid #73AD21;
 }
 
 
 .col-sm-8{
 	height: 550px;
-	border: 3px solid #73AD21
+	border: 3px solid #73AD21;
+	background:url('')
+	no-repeat center center fixed;
+    background-size: cover;
 }
 
 
@@ -20,7 +23,7 @@
 
 button{
 	
-	width: 97%
+	width: 97%;
 	/*height: 100%;*/
 }
 
@@ -33,14 +36,55 @@ button{
 }
 
 .again{
-	height: 100%
+	height: 100%;
 
 }
 
 .next{
-	height: 100%
+	height: 100%;
 }
 
 .start{
-	height: 100%
+	height: 100%;
+	background-color: rgba(125,200,125,.7);
 }
+
+.time{
+
+	height:40%;
+	width: 99%;
+	margin-top: 10%;
+	background-color: rgba(125,200,125,.7);
+}
+
+.score{
+
+	background-color: rgba(125,200,125,.7);
+	height: 40%;
+	margin-top: 17%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
