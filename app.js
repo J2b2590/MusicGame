@@ -1,8 +1,7 @@
 console.log('Live in Chicago')
 
 $('.start').on('click', (e) =>{
-	// A.play();
-	// C.play();
+	
 	game.startGame()
 	game.playInterval()
 })
@@ -23,6 +22,11 @@ $('.start').on('click', (e) =>{
 				// event.currentarget get the text out of it and compare to intervalGame.intervalPlayed
 				game.checkForAnswer(e)
 			})
+
+					$('.majsecond').on('click', (e) =>{
+
+						game.checkForAnswer(e)
+					})
 
 				$('.mthird').on('click', (e) =>{
 
@@ -51,10 +55,10 @@ $('.msixth').on('click', (e) =>{
 	game.checkForAnswer(e)
 })
 
-	// $('.majsixth').on('click', (e) =>{
+	$('.majsixth').on('click', (e) =>{
 
-	// 	game.checkForAnswer(e)
-	// })
+		game.checkForAnswer(e)
+	})
 
 			$('.mseventh').on('click', (e) =>{
 
@@ -66,6 +70,11 @@ $('.msixth').on('click', (e) =>{
 					game.checkForAnswer(e)
 				})
 
+					$('.octave').on('click', (e) =>{
+
+						game.checkForAnswer(e)
+					})
+
 
 
 
@@ -75,10 +84,17 @@ $('.msixth').on('click', (e) =>{
 
 //MAKE m3 INTERVAL AND M6 INTERVAL AND OCTAVE 
 
-const notes = [{interval: 'm2', src: ['m2a.wav']}, {interval: 'm3', src: ['m2a.wav']},
-{interval: 'M3', src: ['./Intervals/M3a.wav']},{interval: 'P4', src: ['./Intervals/P4.wav']},
-{interval: 'P5', src: ['./Intervals/P5.wav']}, {interval: 'm6', src: ['./Intervals/m6a.wav']},
-{interval: 'm7', src: ['./Intervals/m7a.wav']},{interval: 'M7', src: ['./Intervals/M7aa.wav']}];
+const notes = 	[{interval: 'm2', src: ['m2a.wav']}, 
+				{interval: 'M2', src: ['./jeez/M2a.wav']}, 
+				{interval: 'm3', src: ['./forgot/m3a.wav']},
+				{interval: 'M3', src: ['./Intervals/M3a.wav']},
+				{interval: 'P4', src: ['./Intervals/P4.wav']},
+				{interval: 'P5', src: ['./Intervals/P5.wav']}, 
+				{interval: 'm6', src: ['./Intervals/m6a.wav']},
+				{interval: 'M6', src: ['./forgot/M6a.wav']},
+				{interval: 'm7', src: ['./Intervals/m7a.wav']},
+				{interval: 'M7', src: ['./Intervals/M7aa.wav']},
+				{interval: 'Octave', src: ['./forgot/octave.wav']}];
 
 class IntervalGame {
 
@@ -131,8 +147,7 @@ class IntervalGame {
 	playInterval(){
 		
 
-		// random function that will return to you something that looks like
-		// {notes: 'm2' src: ['D.wav']} --> pAth is 'D.wav'
+		
 		const rando = this.notes[Math.floor(Math.random()*this.notes.length)];
 
 		const interval = new Audio(rando.src[0])
@@ -155,7 +170,7 @@ class IntervalGame {
 	
 	playIntervalAgain(){
 
-		this.intervalPlayed 
+		
 
 
 	}
