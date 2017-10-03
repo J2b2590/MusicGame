@@ -4,61 +4,89 @@ $('.start').on('click', (e) =>{
 	// A.play();
 	// C.play();
 	game.startGame()
+	game.playInterval()
 })
 
+	$('.again').on('click', (e) =>{
+		
+		game.playIntervalAgain()
+	})
 
-$('.second').on('click', (e) =>{
-	if(e.currenttarget === this.m2)
+		$('.next').on('click', (e) =>{
+			game.playInterval()
+		})
 
 
-	console.log('does this click work')
+			$('.msecond').on('click', (e) =>{
+				
+				
+				// event.currentarget get the text out of it and compare to intervalGame.intervalPlayed
+				game.checkForAnswer(e)
+			})
+
+				$('.mthird').on('click', (e) =>{
+
+
+
+					game.checkForAnswer(e)
+				})
+
+			$('.majthird').on('click', (e) =>{
+
+				game.checkForAnswer(e)
+			})
+
+		$('.perfectFourth').on('click', (e) =>{
+
+			game.checkForAnswer(e)
+		})
+
+	$('.perfectFifth').on('click', (e) =>{
+
+		game.checkForAnswer(e)
+	})
+
+$('.msixth').on('click', (e) =>{
+
+	game.checkForAnswer(e)
 })
 
-$('.third').on('click', (e) =>{
+	// $('.majsixth').on('click', (e) =>{
 
+	// 	game.checkForAnswer(e)
+	// })
 
-notesOfNotes.third()
-	console.log('does this click work')
-})
+			$('.mseventh').on('click', (e) =>{
 
+				game.checkForAnswer(e)
+			})
 
-// for (var i = 0; i < notes.length; i++) {
-// 	notes[i].play()
-// }
-// this loop works
+				$('.majseventh').on('click', (e) =>{
 
-
-
-const m2 = new Audio('This is a C.wav', '334536__teddy-frost__piano-normal-d4.wav', 'D.wav' )
-
-
-// const A = new Audio('334536__teddy-frost__piano-normal-d4.wav');
-
-// const D = new Audio('D.wav')
+					game.checkForAnswer(e)
+				})
 
 
 
 
-// let m2 = []
 
-// 	notes.push(C)
-// 	notes.push(A)
-// 	notes.push(D)
 
-let time = 30;
 
-class intervalGame {
 
-	constructor(m2,M2,m3,M3,P4,P5,m6,M6,m7,M7,time){
-		this.m2 = {}
-		this.M2 = {}
-		this.m3 = {}
-		this.M3 = {}
-		this.P4 = {}
-		this.P5 = {}
-		this.m6 = {}
-		this.M7 = {}
-		this.time = 5;
+//MAKE m3 INTERVAL AND M6 INTERVAL AND OCTAVE 
+
+const notes = [{interval: 'm2', src: ['m2a.wav']}, {interval: 'm3', src: ['m2a.wav']},
+{interval: 'M3', src: ['./Intervals/M3a.wav']},{interval: 'P4', src: ['./Intervals/P4.wav']},
+{interval: 'P5', src: ['./Intervals/P5.wav']}, {interval: 'm6', src: ['./Intervals/m6a.wav']},
+{interval: 'm7', src: ['./Intervals/m7a.wav']},{interval: 'M7', src: ['./Intervals/M7aa.wav']}];
+
+class IntervalGame {
+
+	constructor(notes){
+		this.time = 30;
+		this.intervalPlayed = '';
+		this.notes = notes;
+		this.score = 0;
 	}
 
 	startGame(){
@@ -70,16 +98,19 @@ class intervalGame {
 
 			if(this.time === 0){
 				clearInterval(timer)
-				console.log('game over')
+
+				alert('game over')
 
 			}
 
-			$('.timer').text('You have: ' + this.time)
+			$('.timer').text( this.time )
 			
-			setInterval()
+			
 
 		}, 2000)
 
+
+		$('.score').text(`score: ${game.score}`);
 		
    		
 				
@@ -87,19 +118,67 @@ class intervalGame {
 
 	}
 
-	checkForAnswer(){
+	updateScore(bool){
+		console.log('here')
+		if(bool){
+			console.log('also here')
+			$('.score').text(`score: ${++this.score}`);
+		}
+	}
+
+
+
+	playInterval(){
+		
+
+		// random function that will return to you something that looks like
+		// {notes: 'm2' src: ['D.wav']} --> pAth is 'D.wav'
+		const rando = this.notes[Math.floor(Math.random()*this.notes.length)];
+
+		const interval = new Audio(rando.src[0])
+
+		console.log(rando)
+		console.log(interval)
+
+
+			 
+		interval.play()
+
+		this.intervalPlayed = rando.interval
+
+		console.log(this.intervalPlayed)
+
+
+
+
+		}
+	
+	playIntervalAgain(){
+
+		this.intervalPlayed 
+
+
+	}
+	
+	
+
+	checkForAnswer(event){
+		this.updateScore($(event.currentTarget).children().text() === this.intervalPlayed)
+
+		
+
+		// event.currentarget get the text out of it and compare to intervalGame.intervalPlayed
 
 		//compare button that was clicked to what was played
 		//use this method in the buttons
 	}
 
+
+
 }
 
-	const game = new intervalGame('fdsa','fdsa')
 
-
-
-
+	const game = new IntervalGame(notes)
 
 
 
