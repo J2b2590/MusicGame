@@ -4,22 +4,25 @@ $('.start').on('click', (e) =>{
 	
 	game.startGame()
 	game.playInterval()
+	$('.start').addClass('hidden')
+
 })
 
 	$('.again').on('click', (e) =>{
 		
 		game.playIntervalAgain()
+
 	})
 
 		$('.next').on('click', (e) =>{
 			game.playInterval()
+
+
 		})
 
 
 			$('.msecond').on('click', (e) =>{
 				
-				
-				// event.currentarget get the text out of it and compare to intervalGame.intervalPlayed
 				game.checkForAnswer(e)
 			})
 
@@ -29,6 +32,7 @@ $('.start').on('click', (e) =>{
 					})
 
 				$('.mthird').on('click', (e) =>{
+
 
 
 
@@ -103,6 +107,7 @@ class IntervalGame {
 		this.intervalPlayed = '';
 		this.notes = notes;
 		this.score = 0;
+		
 	}
 
 	startGame(){
@@ -119,7 +124,7 @@ class IntervalGame {
 
 			}
 
-			$('.timer').text( this.time )
+			$('.timer').text( '0:' + this.time )
 			
 			
 
@@ -135,6 +140,7 @@ class IntervalGame {
 	}
 
 	updateScore(bool){
+
 		console.log('here')
 		if(bool){
 			console.log('also here')
@@ -168,20 +174,96 @@ class IntervalGame {
 
 		}
 	
-	playIntervalAgain(){
+	playIntervalAgain(event){
 
-		
+		for(let i = 0; i < this.notes.length; i++){
+
+			
+
+			if(this.notes[i].interval === this.intervalPlayed){
+				
+				console.log('is this hitting')
+				console.log(this.intervalPlayed, ' intervalPlayed')
+				console.log(this.notes[i].interval, ' this is notes')
+				
+				const again = new Audio(this.notes[i].src[0])
+
+				again.play()
+				
+				} 
+
+				
+
+			
+
+			// console.log(toAgain)
+			// console.log(this.intervalPlayed)
+		}
+
+
+	}
+	flashBack(){
+		console.log('being called')
+
+		if($(event.currentTarget).children().text() === this.intervalPlayed){
+			
+			$('.container').velocity({
+		    backgroundColor: '#00FF25',
+		}, {duration: 1000}).velocity({
+			backgroundColor: '#ffffff'
+		}, {duration: 500});
+
+		}
+		else{
+			$('.container').velocity({
+		    backgroundColor: '#FF0F00',
+		}, {duration: 1000}).velocity({
+			backgroundColor: '#ffffff'
+		}, {duration: 500});
+			
+		}
+
+		// const changeBack => (){
+
+
+
+		// }
+
+
 
 
 	}
 	
-	
+
+
+
+
+
+
+
+
+
 
 	checkForAnswer(event){
-		this.updateScore($(event.currentTarget).children().text() === this.intervalPlayed)
+		
+		console.log('this is being called')
 
 		
 
+		if($(event.currentTarget).children().text() === this.intervalPlayed){
+			console.log('true')
+				this.updateScore(true)
+				this.flashBack(event)
+		} else {
+			console.log(false)
+			this.flashBack(event)
+		}
+
+
+		
+		
+		
+  	
 		// event.currentarget get the text out of it and compare to intervalGame.intervalPlayed
 
 		//compare button that was clicked to what was played
@@ -194,7 +276,8 @@ class IntervalGame {
 
 
 	const game = new IntervalGame(notes)
-
+	// $('.timer').css('fontSize', '140px');
+	// $('.timer').css('fontHeight', '40px');
 
 
 
