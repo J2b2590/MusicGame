@@ -8,76 +8,68 @@ $('.start').on('click', (e) =>{
 
 })
 
-	$('.again').on('click', (e) =>{
+$('.again').on('click', (e) =>{
 		
-		game.playIntervalAgain()
+	game.playIntervalAgain()
+})
 
-	})
+$('.next').on('click', (e) =>{
+	game.playInterval()
+			})
 
-		$('.next').on('click', (e) =>{
-			game.playInterval()
-
-
-		})
-
-
-			$('.msecond').on('click', (e) =>{
+$('.msecond').on('click', (e) =>{
 				
-				game.checkForAnswer(e)
+	game.checkForAnswer(e)
+			})
+	
+$('.majsecond').on('click', (e) =>{
+
+	game.checkForAnswer(e)
 			})
 
-					$('.majsecond').on('click', (e) =>{
+$('.mthird').on('click', (e) =>{
 
-						game.checkForAnswer(e)
-					})
-
-				$('.mthird').on('click', (e) =>{
-
-
-
-
-					game.checkForAnswer(e)
-				})
-
-			$('.majthird').on('click', (e) =>{
-
-				game.checkForAnswer(e)
+	game.checkForAnswer(e)
 			})
 
-		$('.perfectFourth').on('click', (e) =>{
+$('.majthird').on('click', (e) =>{
+	game.checkForAnswer(e)
+			})
 
-			game.checkForAnswer(e)
-		})
+$('.perfectFourth').on('click', (e) =>{
 
-	$('.perfectFifth').on('click', (e) =>{
+	game.checkForAnswer(e)
+			})
 
-		game.checkForAnswer(e)
-	})
+$('.perfectFifth').on('click', (e) =>{
+
+	game.checkForAnswer(e)
+			})
 
 $('.msixth').on('click', (e) =>{
 
 	game.checkForAnswer(e)
-})
-
-	$('.majsixth').on('click', (e) =>{
-
-		game.checkForAnswer(e)
-	})
-
-			$('.mseventh').on('click', (e) =>{
-
-				game.checkForAnswer(e)
 			})
 
-				$('.majseventh').on('click', (e) =>{
+$('.majsixth').on('click', (e) =>{
 
-					game.checkForAnswer(e)
-				})
+	game.checkForAnswer(e)
+			})
 
-					$('.octave').on('click', (e) =>{
+$('.mseventh').on('click', (e) =>{
 
-						game.checkForAnswer(e)
-					})
+	game.checkForAnswer(e)
+			})
+
+$('.majseventh').on('click', (e) =>{
+
+	game.checkForAnswer(e)
+			})
+
+$('.octave').on('click', (e) =>{
+
+	game.checkForAnswer(e)
+			})
 
 
 
@@ -134,9 +126,7 @@ class IntervalGame {
 		$('.score').text(`score: ${game.score}`);
 		
    		
-				
-			
-
+		
 	}
 
 	updateScore(bool){
